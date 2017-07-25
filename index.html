@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iWiku" />
 
 
 
@@ -104,7 +104,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -256,7 +256,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -274,7 +274,7 @@
               
                 
                 <a class="post-title-link" href="/2017/07/23/laravel 笔记/" itemprop="url">
-                  Laravel 笔记
+                  Unbenannt
                 </a>
               
             
@@ -290,7 +290,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T23:58:44+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T23:51:53+08:00">
                 2017-07-23
               </time>
             
@@ -328,184 +328,147 @@
       
         
           
-            <h3 id="第一章：laravel环境搭建及目录基本信息"><a href="#第一章：laravel环境搭建及目录基本信息" class="headerlink" title="第一章：laravel环境搭建及目录基本信息"></a>第一章：laravel环境搭建及目录基本信息</h3><p>声明：此次适用于laravel 5.4 版本</p>
-<p>1.安装composeer<br>要求：php开启openssl拓展</p>
-<p>如果是wamp环境，apache需要开启rewrite模块</p>
-<p>php版本需高于5.6</p>
-<p>2.下载composer</p>
-<p>安装使用：需要指定php的exe文件路径<br>下一步使用composer部署laravel</p>
-<p>国内使用composer管理依赖一般会先切换源地址为国内镜像，代码如下</p>
-<pre><code>composer  config -g repo.packagist composer https://packagist.phpcomposer.com
-</code></pre><p>打开cmd；输入下面一行代码</p>
-<pre><code>composer create-project laravel/laravel --prefer-dist 
-</code></pre><p>[project_name] ：项目名称、</p>
-<p>–[5.3.*] laravel版本号</p>
-<p>稍等片刻之后，laravel就会在你的当前目录部署完成</p>
-<p>ps：系统文件夹下似乎不能创建项目</p>
-<p>3.启动laravel</p>
-<p>可使用php自带的服务器开启测试，简单方便，缺点是，每次开启都需要运行一次命令,在你的项目目录下打开命令行，运行如下代码</p>
-<pre><code>php artisan serve
-</code></pre><p>会在本地端口8000（默认）启动laravel。浏览器地址栏输入  localhost:8000<br> 即可访问laravel</p>
-<p>5.laravel目录结构分析<br>详情去看laravel中文文档</p>
-<h3 id="第二章-入门及使用"><a href="#第二章-入门及使用" class="headerlink" title="第二章 入门及使用"></a>第二章 入门及使用</h3><p>1.定义路由配置文件</p>
-<p>路由文件的位置;laravel/routes/web.php</p>
-<p>格式：Route::请求方式（’请求的url’，闭包函数或相应的方法）<br>例：</p>
-<pre><code>Route::get(&apos;/&apos;,function(){return &apos;hello world&apos;})
-</code></pre><p>函数的返回值就是请求的响应</p>
-<p>–请求方式：get post |前者常用| put patch delete options</p>
-<p>–match和any方法：match匹配所选请求方法，any对应所有请求方法</p>
-<p>默认根路由：view的位置在laravel/routes/views/welcome.blade.php</p>
-<p>路由传参：Route::get(url/{参数？}，function($参数){});</p>
-<p>？表示该参数可有可无，需定义默认值</p>
-<p>–[-&gt;where(‘参数’,regex)]表示对参数匹配正则，不匹配时会导向错误页面，多个参数正则匹配格式为where（[‘参数1’=&gt;’正则1’,’参数2’=&gt;’正则2’])  </p>
-<p>路由别名，可以在其他程序获取他的路由地址，</p>
-<pre><code>Route::get(&apos;/user/login&apos;,[&apos;as&apos;=&gt;&apos;name&apos;,fubction(){
-    return route(&apos;name&apos;);
-}]);
-</code></pre><p>路由前缀格式：</p>
-<pre><code>Route::group([&apos;prefix&apos;=&gt;&apos;admin&apos;],function(){
-    route::get(&apos;login&apos;,function(){});
-    route::get(&apos;logout&apos;,function(){});
-});
-</code></pre><p>其等同于</p>
-<pre><code>Route::get(&apos;/admin/login&apos;,function(){});
-Route::get(&apos;admin/logout&apos;,function(){});
-</code></pre><p>控制器路由：</p>
-<pre><code>Route::get(&apos;url&apos;,&apos;Controller@method&apos;);
-</code></pre><p>###第三章：控制器文件  ###</p>
-<p>路径：laravel/app/lHttp/Controller/</p>
-<p>创建控制器：使用cmd创建</p>
-<pre><code>php artisan make:controller UserController
-</code></pre><p>控制器可以是命名空间下的控制器：Admin/Controller</p>
-<pre><code>php artisan make:controller Admin/UserController
-</code></pre><p>路由也可以定义命名空间访问，功能类似前缀<br>    Route::group([‘prefix’=&gt;’admin’，‘namespace’=&gt;’Admin’],function(){<br>        route::get(‘login’,’UserController@add’);<br>        route::get(‘logout’,’UserController@del’);<br>    });</p>
-<p>控制器方法中接受用户输入需引入Input类<br>Input::method();<br>方法有</p>
-<pre><code>get(&apos;name&apos;,&apos;defalut&apos;)
-all();
-only(&apos;name&apos;)
-except(&apos;name&apos;)
-</code></pre><p>###四  DB操作库###</p>
-<h4 id="mdzz，不如去看手册"><a href="#mdzz，不如去看手册" class="headerlink" title="mdzz，不如去看手册"></a>mdzz，不如去看手册</h4><p>数据库配置文件在laravel/.env文件中，也可以在config/database.php文件中配置，使用env函数，表示先从.env文件中获取，失败使用当前配置</p>
-<p>注：如果使用php artisan serve 启动的，修改配置文件需要重新启动，才能使配置生效</p>
-<p>创建Controller类，类中引用DB类，<br>主要有insert，update，get，delete，</p>
-<p>select(‘sql’)可以写原生sql语句</p>
-<h3 id="五-View"><a href="#五-View" class="headerlink" title="五 View"></a>五 View</h3><ul>
-<li>blade模板学习</li>
-</ul>
-<p>注意的一点，</p>
-<pre><code>view（&apos;admin.login&apos;,[&apos;data&apos;-&gt;$data]）;
-</code></pre><p>视图目录 使用 ‘.’来分级</p>
-<p>-compact函数</p>
-<p>创建一个包含变量名还他们的值的关联数组，key为函数的参数，value为参数中变量的值</p>
-<p>-模板继承</p>
-<ol>
-<li>@yield(‘main’)标签，指定被替换的位置（可变的区域）；</li>
-<li><p>语法：</p>
-<pre><code>@extends（&apos;admin.layout&apos;）
-@section(&apos;main&apos;)
-@endsection
-</code></pre></li>
-</ol>
-<p>-admin.layout 为模板（重复）文件</p>
-<p>在视图文件中引入其他元任免的路由要使用<br><code></code><br>,路由要写完整。</p>
-<ol>
-<li><p>###六  CSRF攻击 ###<br>Cross-site request forgery 跨域请求伪造 攻击</p>
-</li>
-</ol>
-<p>laravel中避免csrf攻击的策略为：每个用户session生成一个CSRF Token，该Token用于验证登陆用户和发起请求是否是同一个人，如果不是则请求失败。</p>
-<p>在视图文件中加入 </p>
-<pre><code>{{csrf_field()}} 
-</code></pre><p>,该函数生成一个hidde的text域<br>也可以添加 </p>
-<pre><code>{{csrf_token()}}   
-</code></pre><p>直接生成token字符串。</p>
-<p>并不是所有的请求都需要避免csrf攻击，比如第三方API获取数据的请求。<br>可以在VerifyCsrfToken (app/Http/Middleware/VerifyCsrfToken.php)中讲要排除的请求URL添加到$except 中,例：</p>
-<pre><code>prtected $except=[
-    &apos;demo/registerok&apos;    
-];
-</code></pre><h3 id="七-Controller"><a href="#七-Controller" class="headerlink" title="七 Controller"></a>七 Controller</h3><p>创建模型：</p>
-<pre><code>php artisan make:model Admin
-</code></pre><ul>
-<li>Admin:model 名</li>
-<li>该命令应该在项目根目录执行</li>
-<li>生成的模型类文件默认存放在app/http/Models下</li>
-</ul>
-<p>model类文件中应<br>注意：</p>
-<ul>
-<li>$table属性,值是不要前缀的表名，不指定则默认为类名的复数s作为表名</li>
-<li>$primaryKey</li>
-<li>$timestamps 值为false，不设置为false则默认会操作表中created_at和updated_at字段</li>
-<li>$fillable属性，表示提交表单时，允许修改到数据库的字段信息。</li>
-</ul>
-<p>创建相应的控制器：</p>
-<pre><code>php artisan make:cntroller Admin\AdminController
-</code></pre><p>对数据库的操作：</p>
-<ol>
-<li>定义路由</li>
-<li><p>编写方法</p>
-<p>添加数据： ①实例化模型，然后为模型设置属性，最后使用save方法即可</p>
-<pre><code>②引用request类（ Illuminate\Http\Request），使用模型的create方法添加
-</code></pre></li>
-</ol>
-<pre><code>@method 1: 
-$admin=new Admin();
-$admin-&gt;name=&apos;name&apos;;
-$admin-&gt;age=18;
-$admin-&gt;email=&apos;admin@live.com&apos;;
-$res=$admin-&gt;save();
+          第一章：laravel环境搭建及目录基本信息声明：此次适用于laravel 5.4 版本
+1.安装composeer要求：php开启openssl拓展
+如果是wamp环境，apache需要开启rewrite模块
+php版本需高于5.6
+2.下载composer
+安装使用：需要指定php的exe文件路
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/23/laravel 笔记/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 
 
-@method 2；
-$data=Request::all();
-$res=Admin::create($data)
-</code></pre><p>Request类的方法还有input,only,except,has,get等。想要了解，去看文档~</p>
-<p>查询数据：使用模型的find（），all()静态方法，还有where条件语句,详细查手册</p>
-<p>修改数据： laravel更新数据，需要先调用find找到对应记录，然后反正的对象进行更新数据，最后调用save（）方法保存即可。</p>
-<pre><code>$user=User::find($id);
-$user-&gt;title=$_POST[&apos;title&apos;];
-$user-&gt;name=$_POST[&apos;name&apos;];
-$user-&lt;save();
-</code></pre><p>删除数据：同样需要先查询对应数据，然后使用返回对象的delete方法来删除。</p>
-<pre><code>$user=User::find($id);
-$user-&gt;delete();
-</code></pre><p>复杂查询：链式查询，关键字：where,select,orderby,get,take,offset等，详情查看手册</p>
-<h3 id="数据分页"><a href="#数据分页" class="headerlink" title="数据分页"></a>数据分页</h3><p>laravel没有分页类，而是模型继承了分页方法，使用时调用分页方法即可。<br>    $data=Admin::paginate($page_per);<br>    return view(‘admin.admin.index’,compact(‘data’));</p>
-<p>$page_per为每页资源个数，compact讲数据组装分配到模板中，<br>不如直接看文档啦-&gt;</p>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><ol>
-<li>获取上传的文件，</li>
-<li>验证文件是否存在</li>
-<li>验证文件是否上传成功</li>
-<li><p>（数据库添加数据，注意$fillable的值）</p>
-<p>$file=$request-&gt;file(‘filename’);<br>$request-&gt;hasFile(‘filename’);<br>$request-&gt;file(‘filename’)-&gt;isValid();</p>
-</li>
-</ol>
-<p>这几步不够清晰，老样子，移步文档-&gt;</p>
-<h3 id="自动验证"><a href="#自动验证" class="headerlink" title="自动验证"></a>自动验证</h3><p>laravel验证方式有两种：控制器里写验证规则，单独写一个验证文件</p>
-<p>①控制器里写验证,例：</p>
-<pre><code>public function store(Request $request){
-$this-&gt;validate($request,[
-    &apos;name&apos;=&gt;&apos;qequired|unique:posts|max:25&apos;,
-    &apos;age&apos;=&gt;&apos;reqqired&apos;,
-]); 
-</code></pre><p>}</p>
-<p>基本验证规则有：</p>
-<ul>
-<li>required: 不能为空</li>
-<li>max:255最长255个字符，</li>
-<li>min:1最少1个字符</li>
-<li>email:验证邮箱是否合法</li>
-<li>confirmed:验证两个字段是否相同，如果验证的字段是password,<br>则必须输入一个与之匹配的password_confirmation字段</li>
-<li>integer:验证字段必须是整型</li>
-<li>ip:验证字段必须是IP地址</li>
-<li>numeric 验证字段必须是数值</li>
-<li>max:value 验证字段必须小于等于最大值，和字符串，数值，文件字段的size规则一起使用。</li>
-<li>min:value 验证字段的最小值，对字符串、数值、文件字段而言，和size规则使用方式一致。</li>
-<li>size:value 验证字段必须有和给定值value想匹配的尺寸，对字符串而言，value是相应的字符数目，对数值而言，value是给定整型值；对文件而言，value是相应的文件字节数。</li>
-<li>string 验证字段必须是字符串</li>
-<li>unique:表名，字段，需要排除的ID</li>
-</ul>
-<p>验证输错误信息</p>
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="wiku.me/2017/07/22/color-You/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iWiku">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/95.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Colors">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/22/color-You/" itemprop="url">
+                  color.You
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-22T19:35:27+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一个人会不会无缘无故的挂念另一个人呢，好久没联系，好久没见面，好久没有说过话，单相思？他好像也不是那样，没有谁就活不下去的样子。那该是怎样的呢，下雨的时候会想她那里的天气，起风的时候，看夕阳的时候，早起洗澡的时候。他很想他吗，也许大概，他爱她吗，爱吧，会为他去死，想为她去活。他喜欢独立的女孩子，坚强
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/color-You/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -552,7 +515,7 @@ $this-&gt;validate($request,[
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -624,8 +587,15 @@ $this-&gt;validate($request,[
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/color-pink/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -672,7 +642,7 @@ $this-&gt;validate($request,[
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -744,8 +714,15 @@ $this-&gt;validate($request,[
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/color-light/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -792,7 +769,7 @@ $this-&gt;validate($request,[
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -864,8 +841,15 @@ $this-&gt;validate($request,[
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/color-black/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -912,7 +896,7 @@ $this-&gt;validate($request,[
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -984,128 +968,15 @@ $this-&gt;validate($request,[
       
         
           
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="wiku.me/2017/07/22/color-blue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="iWiku">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Colors">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/22/color-blue/" itemprop="url">
-                  color.blue
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-22T19:33:39+08:00">
-                2017-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
           
           
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/color-gray/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1175,7 +1046,7 @@ $this-&gt;validate($request,[
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/uploads/95.jpg"
                alt="iWiku" />
           <p class="site-author-name" itemprop="name">iWiku</p>
            
@@ -1187,7 +1058,7 @@ $this-&gt;validate($request,[
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -1300,7 +1171,7 @@ $this-&gt;validate($request,[
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

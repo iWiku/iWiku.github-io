@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iWiku" />
 
 
 
@@ -89,14 +89,14 @@
 
 <meta name="description" content="第一章：laravel环境搭建及目录基本信息声明：此次适用于laravel 5.4 版本 1.安装composeer要求：php开启openssl拓展 如果是wamp环境，apache需要开启rewrite模块 php版本需高于5.6 2.下载composer 安装使用：需要指定php的exe文件路径下一步使用composer部署laravel 国内使用composer管理依赖一般会先切换源地址为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Laravel 笔记">
+<meta property="og:title" content="Colors">
 <meta property="og:url" content="wiku.me/2017/07/23/laravel 笔记/index.html">
 <meta property="og:site_name" content="Colors">
 <meta property="og:description" content="第一章：laravel环境搭建及目录基本信息声明：此次适用于laravel 5.4 版本 1.安装composeer要求：php开启openssl拓展 如果是wamp环境，apache需要开启rewrite模块 php版本需高于5.6 2.下载composer 安装使用：需要指定php的exe文件路径下一步使用composer部署laravel 国内使用composer管理依赖一般会先切换源地址为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-07-23T16:00:30.961Z">
+<meta property="og:updated_time" content="2017-07-24T12:34:00.224Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laravel 笔记">
+<meta name="twitter:title" content="Colors">
 <meta name="twitter:description" content="第一章：laravel环境搭建及目录基本信息声明：此次适用于laravel 5.4 版本 1.安装composeer要求：php开启openssl拓展 如果是wamp环境，apache需要开启rewrite模块 php版本需高于5.6 2.下载composer 安装使用：需要指定php的exe文件路径下一步使用composer部署laravel 国内使用composer管理依赖一般会先切换源地址为">
 
 
@@ -105,7 +105,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -131,7 +131,7 @@
 
 
 
-  <title> Laravel 笔记 | Colors </title>
+  <title>  | Colors </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -255,7 +255,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iWiku">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/95.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,7 +271,7 @@
             
             
               
-                Laravel 笔记
+                
               
             
           </h1>
@@ -286,7 +286,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T23:58:44+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T23:51:53+08:00">
                 2017-07-23
               </time>
             
@@ -342,8 +342,9 @@
 </code></pre><p>会在本地端口8000（默认）启动laravel。浏览器地址栏输入  localhost:8000<br> 即可访问laravel</p>
 <p>5.laravel目录结构分析<br>详情去看laravel中文文档</p>
 <h3 id="第二章-入门及使用"><a href="#第二章-入门及使用" class="headerlink" title="第二章 入门及使用"></a>第二章 入门及使用</h3><p>1.定义路由配置文件</p>
-<p>路由文件的位置;laravel/routes/web.php</p>
-<p>格式：Route::请求方式（’请求的url’，闭包函数或相应的方法）<br>例：</p>
+<p>路由文件的位置： </p>
+<pre><code>laravel/routes/web.php 
+</code></pre><p>格式：Route::请求方式（’请求的url’，闭包函数或相应的方法）<br>例：</p>
 <pre><code>Route::get(&apos;/&apos;,function(){return &apos;hello world&apos;})
 </code></pre><p>函数的返回值就是请求的响应</p>
 <p>–请求方式：get post |前者常用| put patch delete options</p>
@@ -366,20 +367,24 @@
 Route::get(&apos;admin/logout&apos;,function(){});
 </code></pre><p>控制器路由：</p>
 <pre><code>Route::get(&apos;url&apos;,&apos;Controller@method&apos;);
-</code></pre><p>###第三章：控制器文件  ###</p>
-<p>路径：laravel/app/lHttp/Controller/</p>
-<p>创建控制器：使用cmd创建</p>
+</code></pre><h3 id="第三章：控制器文件"><a href="#第三章：控制器文件" class="headerlink" title="第三章：控制器文件"></a>第三章：控制器文件</h3><p>路径：</p>
+<pre><code>laravel/app/lHttp/Controller/ 
+</code></pre><p>创建控制器：使用cmd创建</p>
 <pre><code>php artisan make:controller UserController
 </code></pre><p>控制器可以是命名空间下的控制器：Admin/Controller</p>
 <pre><code>php artisan make:controller Admin/UserController
-</code></pre><p>路由也可以定义命名空间访问，功能类似前缀<br>    Route::group([‘prefix’=&gt;’admin’，‘namespace’=&gt;’Admin’],function(){<br>        route::get(‘login’,’UserController@add’);<br>        route::get(‘logout’,’UserController@del’);<br>    });</p>
-<p>控制器方法中接受用户输入需引入Input类<br>Input::method();<br>方法有</p>
+</code></pre><p>路由也可以定义命名空间访问，功能类似前缀</p>
+<pre><code>Route::group([&apos;prefix&apos;=&gt;&apos;admin&apos;，‘namespace&apos;=&gt;&apos;Admin&apos;],function(){
+    route::get(&apos;login&apos;,&apos;UserController@add&apos;);
+    route::get(&apos;logout&apos;,&apos;UserController@del&apos;);
+});
+</code></pre><p>控制器方法中接受用户输入需引入Input类<br>Input::method();<br>方法有</p>
 <pre><code>get(&apos;name&apos;,&apos;defalut&apos;)
 all();
 only(&apos;name&apos;)
 except(&apos;name&apos;)
-</code></pre><p>###四  DB操作库###</p>
-<h4 id="mdzz，不如去看手册"><a href="#mdzz，不如去看手册" class="headerlink" title="mdzz，不如去看手册"></a>mdzz，不如去看手册</h4><p>数据库配置文件在laravel/.env文件中，也可以在config/database.php文件中配置，使用env函数，表示先从.env文件中获取，失败使用当前配置</p>
+</code></pre><h3 id="四-DB操作库"><a href="#四-DB操作库" class="headerlink" title="四  DB操作库"></a>四  DB操作库</h3><p>不如去看手册 </p>
+<p>数据库配置文件在laravel/.env文件中，也可以在config/database.php文件中配置，使用env函数，表示先从.env文件中获取，失败使用当前配置</p>
 <p>注：如果使用php artisan serve 启动的，修改配置文件需要重新启动，才能使配置生效</p>
 <p>创建Controller类，类中引用DB类，<br>主要有insert，update，get，delete，</p>
 <p>select(‘sql’)可以写原生sql语句</p>
@@ -401,16 +406,16 @@ except(&apos;name&apos;)
 </code></pre></li>
 </ol>
 <p>-admin.layout 为模板（重复）文件</p>
-<p>在视图文件中引入其他元任免的路由要使用<br><code></code><br>,路由要写完整。</p>
+<p>在视图文件中引入其他元任免的路由要使用,路由要写完整。</p>
 <ol>
-<li><p>###六  CSRF攻击 ###<br>Cross-site request forgery 跨域请求伪造 攻击</p>
+<li><h3 id="六-CSRF攻击"><a href="#六-CSRF攻击" class="headerlink" title="六  CSRF攻击"></a>六  CSRF攻击</h3><p>Cross-site request forgery 跨域请求伪造 攻击</p>
 </li>
 </ol>
 <p>laravel中避免csrf攻击的策略为：每个用户session生成一个CSRF Token，该Token用于验证登陆用户和发起请求是否是同一个人，如果不是则请求失败。</p>
-<p>在视图文件中加入 </p>
+<p>在视图文件中加入         </p>
 <pre><code>{{csrf_field()}} 
-</code></pre><p>,该函数生成一个hidde的text域<br>也可以添加 </p>
-<pre><code>{{csrf_token()}}   
+</code></pre><p>该函数生成一个hidde的text域<br>也可以添加 </p>
+<pre><code>{{csrf_token()}} 
 </code></pre><p>直接生成token字符串。</p>
 <p>并不是所有的请求都需要避免csrf攻击，比如第三方API获取数据的请求。<br>可以在VerifyCsrfToken (app/Http/Middleware/VerifyCsrfToken.php)中讲要排除的请求URL添加到$except 中,例：</p>
 <pre><code>prtected $except=[
@@ -474,14 +479,15 @@ $user-&gt;delete();
 </ol>
 <p>这几步不够清晰，老样子，移步文档-&gt;</p>
 <h3 id="自动验证"><a href="#自动验证" class="headerlink" title="自动验证"></a>自动验证</h3><p>laravel验证方式有两种：控制器里写验证规则，单独写一个验证文件</p>
-<p>①控制器里写验证,例：</p>
-<pre><code>public function store(Request $request){
+<h5 id="①控制器里写验证"><a href="#①控制器里写验证" class="headerlink" title="①控制器里写验证"></a>①控制器里写验证</h5><p>例：</p>
+<pre><code>public function store(Request $request)
+{
 $this-&gt;validate($request,[
     &apos;name&apos;=&gt;&apos;qequired|unique:posts|max:25&apos;,
     &apos;age&apos;=&gt;&apos;reqqired&apos;,
 ]); 
-</code></pre><p>}</p>
-<p>基本验证规则有：</p>
+}
+</code></pre><p>基本验证规则有：</p>
 <ul>
 <li>required: 不能为空</li>
 <li>max:255最长255个字符，</li>
@@ -498,6 +504,63 @@ $this-&gt;validate($request,[
 <li>unique:表名，字段，需要排除的ID</li>
 </ul>
 <p>验证输错误信息</p>
+<p><a href="https://github.com/caouecs/Laravel-lang" title="https://github.com/caouecs/Laravel-lang" target="_blank" rel="external">github/laravel-lang</a> 下载语言包，将语言包拷贝到到laravel/resources/lang目录下<br>修改config/appp.php中</p>
+<pre><code>&apos;locale&apos;=&gt;&apos;zh-CN&apos;
+</code></pre><h5 id="②自定义验证类文件"><a href="#②自定义验证类文件" class="headerlink" title="②自定义验证类文件"></a>②自定义验证类文件</h5><p>创建验证类文件：</p>
+<pre><code>php artisan make:request AdminRequests
+</code></pre><p>类文件默认位于app/Http/Request下，接下来添加验证规则：在类文件rules方法中添加验证规则</p>
+<pre><code>public function rules()
+    {
+        return [
+            &apos;title&apos;=&gt;&apos;required|uinque:posts|min:2&apos;,
+            &apos;password&apos;=&gt;&apos;required|between:6,12&apos;
+            ];
+    }
+</code></pre><p>定义验证错误输出错误信息</p>
+<pre><code>public function message()
+{
+    return [
+    &apos;name.required&apos;=&gt;&apos;用户名不能为空&apos;,
+    &apos;name.min&apos;=&gt;&apos;至少两个字符&apos;,
+    &apos;password.required&apos;=&gt;&apos;密码不能为空&apos;,
+    &apos;password.between&apos;=&gt;&apos;密码长度必须6到12位&apos;,
+    ];
+}
+</code></pre><p>写好验证类文件之后，引入到需要的类文件中，在方法中使用就可以了：</p>
+<pre><code>public function addAdmin(AdminRequests $request)
+{
+    //code
+}    
+</code></pre><p> 输出错误信息：</p>
+<pre><code>@if (count($errors) &gt; 0)
+    &lt;div class=&quot;alert alert-danger&quot;&gt;
+        &lt;ul&gt;
+            @foreach ($errors-&gt;all() as $error)
+                &lt;li&gt;{{ $error }}&lt;/li&gt;
+            @endforeach
+        &lt;/ul&gt;
+    &lt;/div&gt;
+@endif
+</code></pre><h3 id="跳转功能"><a href="#跳转功能" class="headerlink" title="跳转功能"></a>跳转功能</h3><p>在跳转的路径后添加 <code>with(&quot;message&quot;,&#39;输出的错误信息&#39;);</code><br>可以显示在模板中</p>
+<pre><code>&lt;div&gt;    
+{{Session:;get('message')}}
+&lt;/div&gt;
+</code></pre><h3 id="数据库迁移"><a href="#数据库迁移" class="headerlink" title="数据库迁移"></a>数据库迁移</h3><p>步骤：</p>
+<ol>
+<li>创建表结构的php文件，设计表结构</li>
+<li>运行php文件，表结构创建完成</li>
+<li>创建表数据php文件，设置要添加的数据</li>
+<li>运行php文件，添加数据完成</li>
+</ol>
+<p>基本命令：</p>
+<pre><code>php artisan make:migration cerate_user_table  //创建表结构文件
+php artisan migrate  //生成表结构
+
+php artisan make:seeder UsersTableSeeder //创建填充数据文件
+php artisan db:seed --class=UsersTabelSeeder  //执行文件，填充数据
+</code></pre><p>更多命令点击-&gt;</p>
+<h3 id="多表关系关联模型"><a href="#多表关系关联模型" class="headerlink" title="多表关系关联模型"></a>多表关系关联模型</h3><p>####一对多</p>
+<p>####多对多</p>
 
       
     </div>
@@ -534,8 +597,8 @@ $this-&gt;validate($request,[
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/color-pink/" rel="next" title="color.pink">
-                <i class="fa fa-chevron-left"></i> color.pink
+              <a href="/2017/07/22/color-You/" rel="next" title="color.You">
+                <i class="fa fa-chevron-left"></i> color.You
               </a>
             
           </div>
@@ -602,7 +665,7 @@ $this-&gt;validate($request,[
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/uploads/95.jpg"
                alt="iWiku" />
           <p class="site-author-name" itemprop="name">iWiku</p>
            
@@ -614,7 +677,7 @@ $this-&gt;validate($request,[
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -705,7 +768,7 @@ $this-&gt;validate($request,[
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章：laravel环境搭建及目录基本信息"><span class="nav-number">1.</span> <span class="nav-text">第一章：laravel环境搭建及目录基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章-入门及使用"><span class="nav-number">2.</span> <span class="nav-text">第二章 入门及使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mdzz，不如去看手册"><span class="nav-number">2.1.</span> <span class="nav-text">mdzz，不如去看手册</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-View"><span class="nav-number">3.</span> <span class="nav-text">五 View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-Controller"><span class="nav-number">4.</span> <span class="nav-text">七 Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分页"><span class="nav-number">5.</span> <span class="nav-text">数据分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">6.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动验证"><span class="nav-number">7.</span> <span class="nav-text">自动验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章：laravel环境搭建及目录基本信息"><span class="nav-number">1.</span> <span class="nav-text">第一章：laravel环境搭建及目录基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章-入门及使用"><span class="nav-number">2.</span> <span class="nav-text">第二章 入门及使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三章：控制器文件"><span class="nav-number">3.</span> <span class="nav-text">第三章：控制器文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-DB操作库"><span class="nav-number">4.</span> <span class="nav-text">四  DB操作库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-View"><span class="nav-number">5.</span> <span class="nav-text">五 View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-CSRF攻击"><span class="nav-number">6.</span> <span class="nav-text">六  CSRF攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-Controller"><span class="nav-number">7.</span> <span class="nav-text">七 Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分页"><span class="nav-number">8.</span> <span class="nav-text">数据分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">9.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动验证"><span class="nav-number">10.</span> <span class="nav-text">自动验证</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#①控制器里写验证"><span class="nav-number">10.0.1.</span> <span class="nav-text">①控制器里写验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#②自定义验证类文件"><span class="nav-number">10.0.2.</span> <span class="nav-text">②自定义验证类文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转功能"><span class="nav-number">11.</span> <span class="nav-text">跳转功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库迁移"><span class="nav-number">12.</span> <span class="nav-text">数据库迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表关系关联模型"><span class="nav-number">13.</span> <span class="nav-text">多表关系关联模型</span></a></li></ol></div>
             
 
           </div>
@@ -743,7 +806,7 @@ $this-&gt;validate($request,[
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
