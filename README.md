@@ -13,26 +13,27 @@
 
 
 ### 个人技能 ##
-
-- 熟悉HTML，CSS，JS，jQuery 等前端常用技术和框架，了解 vue.js，能够对接现代前端开发模式
 - 扎实的PHP基础，具备OOP编程思想
-- 	熟悉MVC开发模式,能运用ThinkPHP3,Laravel框架进行开发
--   熟悉SQL语法，能够熟练操作MySQL数据库，了解简单的数据库优化
--  熟练使用Git的使用，了解Git Flow工作流
--  能够使用 Redis
--  熟悉 composer
-- 	熟悉Linux常用命令，了解线上开发环境的搭建
-- 	了解常见的web优化手段，理解常见的web安全攻防手段
-- 	拥有 ‘X墙’能力可无障碍访问 Google,Github,stack overflow等网站
+- 熟悉 MVC 开发模式,能运用 ThinkPHP3,Laravel 框架进行开发
+- 熟悉SQL语法，能够熟练操作MySQL数据库，了解简单的数据库优化
+- 熟悉 HTML，CSS，JS，jQuery 等前端常用技术和框架，了解 vue.js，能够对接现代前端开发模式
+- 能够使用 Redis
+- 熟悉 composer
+- 熟悉Linux常用命令，了解线上开发环境的搭建
+- 了解常见的web优化手段，理解常见的web安全攻防手段
+- 熟练使用Git的使用，了解Git Flow工作流
+- 拥有 ‘X墙’能力可无障碍访问 Google,Github,stack overflow等网站
 
 
 ### 教育经历 ####
 
-时间：2013.09 - 2017.07
+* 时间：2013.09 - 2017.07
 
-学校：河南师范大学
+* 学校：河南师范大学
 
-学历：本科  专业：计算机科学与技术
+* 学历：本科  
+
+* 专业：计算机科学与技术
 
 ### 自我评价 ####
 
