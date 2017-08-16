@@ -14,10 +14,10 @@
 
 ### 个人技能 ##
 
-- 熟悉HTML，CSS,JS,jQuery 等前端常用技术和框架,了解 vue.js,能够对接现代前端开发模式
+- 熟悉HTML，CSS，JS，jQuery 等前端常用技术和框架，了解 vue.js，能够对接现代前端开发模式
 - 扎实的PHP基础，具备OOP编程思想
 - 	熟悉MVC开发模式,能运用ThinkPHP3,Laravel框架进行开发
--   熟悉SQL语法，能够熟练操作MySQL数据库，了解简单的数据库优化
+-   熟悉SQL语法，能够熟练操作MySQL数据库，了解简单的数据库优化
 -  熟练使用Git的使用，了解Git Flow工作流
 -  能够使用 Redis
 -  熟悉 composer
