@@ -16,13 +16,13 @@
 - 扎实的 PHP 基础，具备 OOP 编程思想
 - 熟悉 MVC 开发模式,能运用 ThinkPHP3,Laravel 框架进行开发
 - 熟悉 SQL 语法，能够熟练操作 MySQL 数据库，了解简单的数据库优化
-- 熟悉 HTML，CSS，JS，jQuery 等前端常用技术和框架，了解 vue.js，能够对接现代前端开发模式
+- 熟悉 HTML, CSS, JS, jQuery 等前端常用技术和框架，了解 vue.js，能够对接现代前端开发模式
 - 能够使用 Redis
 - 熟悉 composer
 - 熟悉 Linux 常用命令，了解线上开发环境的搭建
 - 了解常见的 web 优化手段，理解常见的 web 安全攻防手段
 - 熟练使用 Git 的使用，了解 Git Flow 工作流
-- 拥有 "X墙" 能力可无障碍访问 Google, Github , stack overflow 等网站
+- 拥有 "X墙" 能力可无障碍访问 Google, Github, stack overflow 等网站
 
 ### 教育经历 ####
 
